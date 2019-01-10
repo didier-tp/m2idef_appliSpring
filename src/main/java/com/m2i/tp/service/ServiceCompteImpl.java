@@ -1,5 +1,7 @@
 package com.m2i.tp.service;
 
+import javax.annotation.PostConstruct;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,8 +11,18 @@ import com.m2i.tp.entity.Compte;
 @Service //héritant de @Component
 public class ServiceCompteImpl implements ServiceCompte {
 	
-	//NB: daoCompte pourra référence une instance 
+	//NB: daoCompte pourra référencer une instance 
 	//de type DaoCompteSimu ou bien DaoCompteJpa
+	
+	public ServiceCompteImpl() {
+		System.out.println("dans constructeur daoCompte="+daoCompte);
+	}
+	
+	@PostConstruct
+	public void init() {
+		System.out.println("dans init prefixé par @PostConstruct daoCompte="
+	                       +daoCompte);
+	}
 	
 	private DaoCompte daoCompte; //dao vers lequel déléguer
 	
