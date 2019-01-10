@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.m2i.tp.entity.Compte;
 
+//@Repository
 public class DaoCompteJpa implements DaoCompte {
 
 	@Override

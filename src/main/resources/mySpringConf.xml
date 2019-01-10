@@ -13,7 +13,6 @@ http://www.springframework.org/schema/tx/spring-tx.xsd
 http://www.springframework.org/schema/context
 http://www.springframework.org/schema/context/spring-context.xsd" >
 
-
 <bean id="myDataSource"
      class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 	<property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
@@ -22,6 +21,7 @@ http://www.springframework.org/schema/context/spring-context.xsd" >
 	<property name="password" value="root" />
 </bean>
 
+<!-- 
 <bean   id="daoCompteJpa"  class="com.m2i.tp.dao.DaoCompteJpa">
 </bean>
 
@@ -30,10 +30,13 @@ http://www.springframework.org/schema/context/spring-context.xsd" >
 
 <bean id="serviceCompteImpl" class="com.m2i.tp.service.ServiceCompteImpl" >
         <property  name="daoCompte" ref="daoCompteSimu" />
-  <!-- <property  name="daoCompte" ref="daoCompteJpa" /> -->
-</bean>
+</bean> 
+-->
 <!-- 
 <tx:annotation-driven transaction-manager="txManager" />
-<context:annotation-config/>
 -->
+<context:annotation-config/>
+<context:component-scan base-package="com.m2i.tp" /> 
+<!-- avec classes java comportant @Component/@Repository/@Service , @Autowired  -->
+
 </beans>
