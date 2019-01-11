@@ -48,9 +48,16 @@ public class ServiceCompteImpl implements ServiceCompte {
 	}
 
 	@Override
+	//avec ou sans @Transactional ici ou au dessus de la classe entière ServiceCompteImpl
+	//à tester avec un numéro de compte à créditer qui existe ou n'existe pas
 	public void transferer(Double montant, Long numCptDeb, Long numCptCred) {
-		// sera codé plus tard
-
+		Compte cptDeb = daoCompte.findCompteByNumero(numCptDeb);
+		cptDeb.setSolde(cptDeb.getSolde() - montant);
+		daoCompte.updateCompte(cptDeb); //uniquement nécessaire en mode non @Transactional 
+		                                //non persistant
+		Compte cptCred = daoCompte.findCompteByNumero(numCptCred);
+		cptCred.setSolde(cptCred.getSolde() + montant);
+		daoCompte.updateCompte(cptCred);
 	}
 
 }
