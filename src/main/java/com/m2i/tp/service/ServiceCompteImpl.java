@@ -1,15 +1,16 @@
 package com.m2i.tp.service;
 
 import javax.annotation.PostConstruct;
+import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.m2i.tp.dao.DaoCompte;
 import com.m2i.tp.entity.Compte;
 
 @Service //héritant de @Component
+@Transactional
 public class ServiceCompteImpl implements ServiceCompte {
 	
 	//NB: daoCompte pourra référencer une instance 
@@ -51,15 +52,22 @@ public class ServiceCompteImpl implements ServiceCompte {
 	@Override
 	//avec ou sans @Transactional ici ou au dessus de la classe entière ServiceCompteImpl
 	//à tester avec un numéro de compte à créditer qui existe ou n'existe pas
-	@Transactional
 	public void transferer(Double montant, Long numCptDeb, Long numCptCred) {
 		Compte cptDeb = daoCompte.findCompteByNumero(numCptDeb);
 		cptDeb.setSolde(cptDeb.getSolde() - montant);
-		daoCompte.updateCompte(cptDeb); //uniquement nécessaire en mode non @Transactional 
+		//daoCompte.updateCompte(cptDeb); //uniquement nécessaire en mode non @Transactional 
 		                                //non persistant
 		Compte cptCred = daoCompte.findCompteByNumero(numCptCred);
 		cptCred.setSolde(cptCred.getSolde() + montant);
-		daoCompte.updateCompte(cptCred);
+		//daoCompte.updateCompte(cptCred);
+		
+		//En mode @Transactional , le entityManager et la transaction 
+		//ne sont finalisés (commit/rollback) et close qu'en fin de méthode
+		//Les objet cptDeb et cptCred remontés par le dao sont alors 
+		//dans un état "persistant" et pas "détaché"
+		//A la fin de l'exécution de la méthode améliorée par spring ,
+		//le commit() déclenche entityManager.flush() qui déclenche automatiquement
+		// .merge() sur toutes les entités persistantes modifiées en mémoire
 	}
 
 }
