@@ -1,0 +1,1 @@
+NB: en version "javaConfig" , le fichier myspringConf.xml n'est plus utilisé

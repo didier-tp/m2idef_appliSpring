@@ -1,8 +1,9 @@
 package com.m2i.tp.app;
 
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.m2i.tp.config.AppConfig;
 import com.m2i.tp.entity.Compte;
 import com.m2i.tp.service.ServiceCompte;
 
@@ -10,7 +11,8 @@ public class MyApp {
 
 	public static void main(String[] args) {
 		ApplicationContext contextSpring =
-				new ClassPathXmlApplicationContext("mySpringConf.xml");
+				//new ClassPathXmlApplicationContext("mySpringConf.xml");
+				new AnnotationConfigApplicationContext(AppConfig.class) ;
 		ServiceCompte s = (ServiceCompte) contextSpring.getBean("serviceCompteImpl");
 		               //ou bien contextSpring.getBean(ServiceCompte.class);
 		
