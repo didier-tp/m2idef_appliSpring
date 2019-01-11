@@ -1,11 +1,21 @@
 package com.m2i.tp.entity;
 
-//@Entity
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Compte {
 
-	// @Id
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)//auto_increment mysql
 	private Long numero;
+	
+	@Column(length=32) //VARCHAR(32) si table générée en fonction de java
 	private String label;
+	
 	private Double solde;
 
 	// +get/set , +toString() , + constructeurs avec et sans paramètres
