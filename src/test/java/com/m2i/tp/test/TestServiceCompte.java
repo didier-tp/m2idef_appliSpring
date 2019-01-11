@@ -40,6 +40,29 @@ public class TestServiceCompte {
 	}
 	
 	@Test
+	public void test1Bis_MauvaisTransfert() {
+		Compte cptA = new Compte(null,"compte A_Bis",100.0);
+		this.serviceCompte.saveOrUpdateCompte(cptA);
+		Long numCptA = cptA.getNumero();
+		Compte cptB = new Compte(null,"compte B_Bis",80.0);
+		this.serviceCompte.saveOrUpdateCompte(cptB);
+		Long numCptB = cptB.getNumero();
+		try {
+			serviceCompte.transferer(50.0, numCptA, numCptB+999 /* qui existe pas */);
+			Assert.fail("erreur : une exception aurait du remonter");
+		} catch (Exception e) {
+			//e.printStackTrace();
+			System.out.println("echec transfert normal pour compte inexistant:" + e.getMessage());
+		}
+		Compte cptAApres = serviceCompte.rechercherCompteParNumero(numCptA);
+		Compte cptBApres = serviceCompte.rechercherCompteParNumero(numCptB);
+		System.out.println("apres transfert cptAApres="+cptAApres 
+				          + " \n et cptBApres=" + cptBApres);
+		Assert.assertEquals(100.0,cptAApres.getSolde(),0.001); //reste à 100 si rollback
+		Assert.assertEquals(80.0,cptBApres.getSolde(),0.001); //reste 80 si rollback
+	}
+	
+	@Test
 	public void test2_AjoutCompte() {
 		Compte cpt = new Compte(null,"compte 1",100.0);
 		this.serviceCompte.saveOrUpdateCompte(cpt);
