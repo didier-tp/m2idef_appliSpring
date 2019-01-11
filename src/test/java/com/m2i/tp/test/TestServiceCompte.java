@@ -1,8 +1,10 @@
 package com.m2i.tp.test;
 
 import org.junit.Assert;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -16,20 +18,19 @@ import com.m2i.tp.service.ServiceCompte;
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("/mySpringConf.xml")
 @ContextConfiguration(classes= {AppConfig.class})
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestServiceCompte {
 	
 	@Autowired
 	private ServiceCompte serviceCompte ; //à tester
 	
 	@Test
-	public void testBonTransfert() {
+	public void test1_BonTransfert() {
 		Compte cpt1 = new Compte(null,"compte 1",100.0);
 		this.serviceCompte.saveOrUpdateCompte(cpt1);
 		Compte cpt2 = new Compte(null,"compte 2",80.0);
 		this.serviceCompte.saveOrUpdateCompte(cpt2);
-		
 		serviceCompte.transferer(50.0, 1L, 2L);
-		
 		Compte cpt1Apres = serviceCompte.rechercherCompteParNumero(1L);
 		Compte cpt2Apres = serviceCompte.rechercherCompteParNumero(2L);
 		System.out.println("apres transfert cpt1Apres="+cpt1Apres 
@@ -38,9 +39,8 @@ public class TestServiceCompte {
 		Assert.assertEquals(130.0,cpt2Apres.getSolde(),0.001); //80 + 50 = 130
 	}
 	
-	
 	@Test
-	public void testAjoutCompte() {
+	public void test2_AjoutCompte() {
 		Compte cpt = new Compte(null,"compte 1",100.0);
 		this.serviceCompte.saveOrUpdateCompte(cpt);
 		Assert.assertTrue(cpt.getNumero()!=null);
