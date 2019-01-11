@@ -6,10 +6,12 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.m2i.tp.entity.Compte;
 
 @Repository //@Repository = composant spring de type DAO
+@Transactional //en version Spring (pour commit/rollback automatique)
 public class DaoCompteJpa implements DaoCompte {
 	
 	@PersistenceContext //annotation standardisée de Java/JEE et JPA
