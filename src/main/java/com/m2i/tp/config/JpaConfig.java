@@ -1,5 +1,7 @@
 package com.m2i.tp.config;
 
+import java.util.Properties;
+
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -36,6 +38,10 @@ public class JpaConfig {
 		factory.setJpaVendorAdapter(jpaVendorAdapter);
 		factory.setPackagesToScan("com.m2i.tp.entity");
 		factory.setDataSource(dataSource);
+		Properties jpaProperties = new Properties(); //java.util
+		jpaProperties.setProperty("javax.persistence.schema-generation.database.action",
+				                   "drop-and-create");
+		factory.setJpaProperties(jpaProperties);
 		factory.afterPropertiesSet();
 		return factory.getObject();
 	}
