@@ -4,11 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.stereotype.Repository;
-
 import com.m2i.tp.entity.Compte;
 
-@Repository //ou bien @Component
+//@Repository //ou bien @Component
 //id par défaut = "daoCompteSimu" (nom de la classe avec minuscule au début).
 public class DaoCompteSimu implements DaoCompte {
 

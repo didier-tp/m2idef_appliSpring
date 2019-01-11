@@ -5,42 +5,44 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import org.springframework.stereotype.Repository;
+
 import com.m2i.tp.entity.Compte;
 
-//@Repository
+@Repository //@Repository = composant spring de type DAO
 public class DaoCompteJpa implements DaoCompte {
 	
-	@PersistenceContext
+	@PersistenceContext //annotation standardisée de Java/JEE et JPA
+	                    //qui sert à initialiser entityManager
+						//en fonction META-INF/persistence.xml
+	                    //ou d'une config équivalente spring
 	private EntityManager entityManager;
 
 	@Override
 	public Compte findCompteByNumero(Long numero) {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.find(Compte.class, numero);
 	}
 
 	@Override
 	public List<Compte> findAllComptes() {
-		// TODO Auto-generated method stub
-		return null;
+		return entityManager.createQuery("SELECT c FROM Compte c",Compte.class)
+			                .getResultList();
 	}
 
 	@Override
 	public void updateCompte(Compte cpt) {
-		// TODO Auto-generated method stub
-
+		entityManager.merge(cpt);
 	}
 
 	@Override
 	public void createCompte(Compte cpt) {
-		// TODO Auto-generated method stub
-
+		entityManager.persist(cpt);
 	}
 
 	@Override
 	public void deleteCompte(Long numero) {
-		// TODO Auto-generated method stub
-
+		Compte cpt = entityManager.find(Compte.class, numero);
+        entityManager.remove(cpt);
 	}
 
 }
