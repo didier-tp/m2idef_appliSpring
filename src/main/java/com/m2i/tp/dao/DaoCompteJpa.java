@@ -2,10 +2,16 @@ package com.m2i.tp.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import com.m2i.tp.entity.Compte;
 
 //@Repository
 public class DaoCompteJpa implements DaoCompte {
+	
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@Override
 	public Compte findCompteByNumero(Long numero) {

@@ -7,13 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.m2i.tp.config.AppConfig;
 import com.m2i.tp.entity.Compte;
 //org.junit = Junit4
 import com.m2i.tp.service.ServiceCompte;
 
 //nécessite spring-test dans pom.xml
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration("/mySpringConf.xml")
+//@ContextConfiguration("/mySpringConf.xml")
+@ContextConfiguration(classes= {AppConfig.class})
 public class TestServiceCompte {
 	
 	@Autowired
