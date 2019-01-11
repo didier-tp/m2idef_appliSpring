@@ -1,10 +1,8 @@
 package com.m2i.tp.test;
 
 import org.junit.Assert;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.junit.runners.MethodSorters;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -18,7 +16,7 @@ import com.m2i.tp.service.ServiceCompte;
 @RunWith(SpringJUnit4ClassRunner.class)
 //@ContextConfiguration("/mySpringConf.xml")
 @ContextConfiguration(classes= {AppConfig.class})
-@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class TestServiceCompte {
 	
 	@Autowired
@@ -26,17 +24,19 @@ public class TestServiceCompte {
 	
 	@Test
 	public void test1_BonTransfert() {
-		Compte cpt1 = new Compte(null,"compte 1",100.0);
-		this.serviceCompte.saveOrUpdateCompte(cpt1);
-		Compte cpt2 = new Compte(null,"compte 2",80.0);
-		this.serviceCompte.saveOrUpdateCompte(cpt2);
-		serviceCompte.transferer(50.0, 1L, 2L);
-		Compte cpt1Apres = serviceCompte.rechercherCompteParNumero(1L);
-		Compte cpt2Apres = serviceCompte.rechercherCompteParNumero(2L);
-		System.out.println("apres transfert cpt1Apres="+cpt1Apres 
-				          + " \n et cpt2Apres=" + cpt2Apres);
-		Assert.assertEquals(50.0,cpt1Apres.getSolde(),0.001); //100 - 50 = 50
-		Assert.assertEquals(130.0,cpt2Apres.getSolde(),0.001); //80 + 50 = 130
+		Compte cptA = new Compte(null,"compte A",100.0);
+		this.serviceCompte.saveOrUpdateCompte(cptA);
+		Long numCptA = cptA.getNumero();
+		Compte cptB = new Compte(null,"compte B",80.0);
+		this.serviceCompte.saveOrUpdateCompte(cptB);
+		Long numCptB = cptB.getNumero();
+		serviceCompte.transferer(50.0, numCptA, numCptB);
+		Compte cptAApres = serviceCompte.rechercherCompteParNumero(numCptA);
+		Compte cptBApres = serviceCompte.rechercherCompteParNumero(numCptB);
+		System.out.println("apres transfert cptAApres="+cptAApres 
+				          + " \n et cptBApres=" + cptBApres);
+		Assert.assertEquals(50.0,cptAApres.getSolde(),0.001); //100 - 50 = 50
+		Assert.assertEquals(130.0,cptBApres.getSolde(),0.001); //80 + 50 = 130
 	}
 	
 	@Test
