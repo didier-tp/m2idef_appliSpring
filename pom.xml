@@ -12,6 +12,7 @@
     <!-- UTF-8 = jeu de caracteres portable entre windows et linux -->
     <failOnMissingWebXml>false</failOnMissingWebXml>
     <!-- WEB-INF/web.xml est maintenant facultatif (version 3 des servlet) -->
+    <springframework.version>5.1.3.RELEASE</springframework.version>
   </properties>
   
   <dependencies>
@@ -27,26 +28,26 @@
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-context</artifactId>
     	<!-- et indirectement spring-beans , spring-core -->
-    	<version>5.1.3.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-orm</artifactId>
     	<!-- et indirectement spring-jdbc -->
-    	<version>5.1.3.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-test</artifactId>
-    	<version>5.1.3.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	
 	<dependency>
     	<groupId>org.springframework</groupId>
     	<artifactId>spring-web</artifactId> <!-- pour lien avec jsf -->
-    	<version>5.1.3.RELEASE</version>
+    	<version>${springframework.version}</version>
 	</dependency>
 	
 	<dependency>
@@ -68,6 +69,15 @@
 	    <version>4.12</version>
 	    <scope>test</scope>
 	</dependency>
+	
+	<dependency>
+	    <groupId>javax.inject</groupId>
+	    <!-- sous partie "DI" de CDI compatible avec Spring
+	         pour @Named vu comme @Component 
+	         et @Inject vu comme @Autowired par Spring -->
+	    <artifactId>javax.inject</artifactId>
+	    <version>1</version>
+    </dependency>
   	  
   </dependencies>
   
