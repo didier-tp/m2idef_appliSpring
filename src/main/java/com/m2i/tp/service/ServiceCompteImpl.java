@@ -17,13 +17,12 @@ public class ServiceCompteImpl implements ServiceCompte {
 	//de type DaoCompteSimu ou bien DaoCompteJpa
 	
 	public ServiceCompteImpl() {
-		System.out.println("dans constructeur daoCompte="+daoCompte);
+		//System.out.println("dans constructeur daoCompte="+daoCompte);
 	}
 	
 	@PostConstruct
 	public void init() {
-		System.out.println("dans init prefixé par @PostConstruct daoCompte="
-	                       +daoCompte);
+		//System.out.println("dans init prefixé par @PostConstruct daoCompte=" +daoCompte);
 	}
 	
 	private DaoCompte daoCompte; //dao vers lequel déléguer

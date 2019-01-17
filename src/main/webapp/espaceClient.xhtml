@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<ui:composition template="/templates/common.xhtml">
+<ui:define name="pageTitle">espace client</ui:define>
+<ui:define name="pageHeader">espace client MiniBank</ui:define>
+<ui:define name="body">     
+	 <h3>client identifié [ numClient: <b><h:outputText  value="#{clientMBean.numClient}"/></b> ]</h3>
+     prenom :  <b><h:outputText  value="#{clientMBean.client.prenom}"/></b>  nom: <b><h:outputText  value="#{clientMBean.client.nom}"/></b><br/>
+     adresse : <b><h:outputText  value="#{clientMBean.client.adresse.numEtRue}"/></b> 
+       <b><h:outputText value="#{clientMBean.client.adresse.codePostal}" /></b>  
+       <b><h:outputText value="#{clientMBean.client.adresse.ville}" /></b> <br/>
+     telephone: <b><h:outputText  value="#{clientMBean.client.telephone}"/></b><br/>
+     email :  <b><h:outputText  value="#{clientMBean.client.email}"/></b><br/>
+     <hr/>
+     <h:outputText  value="#{clientMBean.message}"/><br/>
+     <hr/>
+	<h3>liste des comptes</h3>
+	<h:form id="comptes">
+	<h:dataTable var="cpt" border="2" value="#{clientMBean.comptesDuClient}">
+	   <h:column>
+	     <f:facet name="header"><f:verbatim>numero</f:verbatim></f:facet>
+	     <h:outputText  value="#{cpt.numero}"/>
+	   </h:column>
+	   <h:column>
+	     <f:facet name="header"><f:verbatim>label</f:verbatim></f:facet>
+	     <h:outputText  value="#{cpt.label}"/>
+	   </h:column>
+	   <h:column>
+	     <f:facet name="header"><f:verbatim>solde</f:verbatim></f:facet>
+	     <h:outputText  value="#{cpt.solde}"/>
+	   </h:column>   
+	</h:dataTable>
+	</h:form>
+	<hr/>
+	<a href="virement.jsf">effectuer un virement interne</a><br/>
+</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,330 @@
+2019-01-17 11:30:43,839 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@672b72ba]
+2019-01-17 11:30:43,839 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : email
+2019-01-17 11:30:43,839 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom
+2019-01-17 11:30:43,839 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : prenom
+2019-01-17 11:30:43,839 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : telephone
+2019-01-17 11:30:43,839 DEBUG main org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2019-01-17 11:30:43,840 DEBUG main org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2019-01-17 11:30:43,840 DEBUG main org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=com.m2i.tp.entity.Client)
+    - Returns
+       - EntityReturnImpl(entity=com.m2i.tp.entity.Client, querySpaceUid=<gen:0>, path=com.m2i.tp.entity.Client)
+          - CompositeAttributeFetchImpl(composite=com.m2i.tp.entity.Adresse, querySpaceUid=<gen:1>, path=com.m2i.tp.entity.Client.adresse)
+          - CollectionAttributeFetchImpl(collection=com.m2i.tp.entity.Client.comptes, querySpaceUid=<gen:2>, path=com.m2i.tp.entity.Client.comptes)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Compte, querySpaceUid=<gen:3>, path=com.m2i.tp.entity.Client.comptes.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.m2i.tp.entity.Client)
+          - SQL table alias mapping - client0_
+          - alias suffix - 0_
+          - suffixed key columns - {numClien1_0_0_}
+          - JOIN (JoinDefinedByMetadata(adresse)) : <gen:0> -> <gen:1>
+             - CompositeQuerySpaceImpl(uid=<gen:1>)
+                - SQL table alias mapping - client0_
+
+2019-01-17 11:30:43,840 DEBUG main org.hibernate.loader.entity.plan.EntityLoader - Static select for entity com.m2i.tp.entity.Client [READ]: select client0_.numClient as numClien1_0_0_, client0_.codePostal as codePost2_0_0_, client0_.numEtRue as numEtRue3_0_0_, client0_.ville as ville4_0_0_, client0_.email as email5_0_0_, client0_.nom as nom6_0_0_, client0_.prenom as prenom7_0_0_, client0_.telephone as telephon8_0_0_ from Client client0_ where client0_.numClient=?
+2019-01-17 11:30:43,840 DEBUG main org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity com.m2i.tp.entity.Client: select client0_.numClient as numClien1_0_0_, client0_.codePostal as codePost2_0_0_, client0_.numEtRue as numEtRue3_0_0_, client0_.ville as ville4_0_0_, client0_.email as email5_0_0_, client0_.nom as nom6_0_0_, client0_.prenom as prenom7_0_0_, client0_.telephone as telephon8_0_0_ from Client client0_ where client0_.numClient=?
+2019-01-17 11:30:43,840 DEBUG main org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity com.m2i.tp.entity.Client: select client0_.numClient as numClien1_0_0_, client0_.codePostal as codePost2_0_0_, client0_.numEtRue as numEtRue3_0_0_, client0_.ville as ville4_0_0_, client0_.email as email5_0_0_, client0_.nom as nom6_0_0_, client0_.prenom as prenom7_0_0_, client0_.telephone as telephon8_0_0_ from Client client0_ where client0_.numClient=?
+2019-01-17 11:30:43,840 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister - Static SQL for entity: com.m2i.tp.entity.Compte
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister -  Version select: select numero from Compte where numero =?
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister -  Snapshot select: select compte_.numero, compte_.label as label2_2_, compte_.solde as solde3_2_ from Compte compte_ where compte_.numero=?
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister -  Insert 0: insert into Compte (label, solde, numero) values (?, ?, ?)
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister -  Update 0: update Compte set label=?, solde=? where numero=?
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister -  Delete 0: delete from Compte where numero=?
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.entity.AbstractEntityPersister -  Identity insert: insert into Compte (label, solde) values (?, ?)
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@7718a40f]
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : label
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : operations
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@26844abb]
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@1a865273]
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : proprietaires
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@288ca5f0]
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:4> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@4068102e]
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : solde
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2019-01-17 11:30:43,841 DEBUG main org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=com.m2i.tp.entity.Compte)
+    - Returns
+       - EntityReturnImpl(entity=com.m2i.tp.entity.Compte, querySpaceUid=<gen:0>, path=com.m2i.tp.entity.Compte)
+          - CollectionAttributeFetchImpl(collection=com.m2i.tp.entity.Compte.operations, querySpaceUid=<gen:1>, path=com.m2i.tp.entity.Compte.operations)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Operation, querySpaceUid=<gen:2>, path=com.m2i.tp.entity.Compte.operations.<elements>)
+          - CollectionAttributeFetchImpl(collection=com.m2i.tp.entity.Compte.proprietaires, querySpaceUid=<gen:3>, path=com.m2i.tp.entity.Compte.proprietaires)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Client, querySpaceUid=<gen:4>, path=com.m2i.tp.entity.Compte.proprietaires.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.m2i.tp.entity.Compte)
+          - SQL table alias mapping - compte0_
+          - alias suffix - 0_
+          - suffixed key columns - {numero1_2_0_}
+
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.entity.plan.EntityLoader - Static select for entity com.m2i.tp.entity.Compte [NONE]: select compte0_.numero as numero1_2_0_, compte0_.label as label2_2_0_, compte0_.solde as solde3_2_0_ from Compte compte0_ where compte0_.numero=?
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@44bd4b0a]
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : label
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : operations
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@216e0771]
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@21079a12]
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : proprietaires
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@fcc6023]
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:4> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@67c5ac52]
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : solde
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(entity=com.m2i.tp.entity.Compte)
+    - Returns
+       - EntityReturnImpl(entity=com.m2i.tp.entity.Compte, querySpaceUid=<gen:0>, path=com.m2i.tp.entity.Compte)
+          - CollectionAttributeFetchImpl(collection=com.m2i.tp.entity.Compte.operations, querySpaceUid=<gen:1>, path=com.m2i.tp.entity.Compte.operations)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Operation, querySpaceUid=<gen:2>, path=com.m2i.tp.entity.Compte.operations.<elements>)
+          - CollectionAttributeFetchImpl(collection=com.m2i.tp.entity.Compte.proprietaires, querySpaceUid=<gen:3>, path=com.m2i.tp.entity.Compte.proprietaires)
+             - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Client, querySpaceUid=<gen:4>, path=com.m2i.tp.entity.Compte.proprietaires.<elements>)
+    - QuerySpaces
+       - EntityQuerySpaceImpl(uid=<gen:0>, entity=com.m2i.tp.entity.Compte)
+          - SQL table alias mapping - compte0_
+          - alias suffix - 0_
+          - suffixed key columns - {numero1_2_0_}
+
+2019-01-17 11:30:43,842 DEBUG main org.hibernate.loader.entity.plan.EntityLoader - Static select for entity com.m2i.tp.entity.Compte [READ]: select compte0_.numero as numero1_2_0_, compte0_.label as label2_2_0_, compte0_.solde as solde3_2_0_ from Compte compte0_ where compte0_.numero=?
+2019-01-17 11:30:43,844 DEBUG main org.hibernate.loader.Loader - Static select for action ACTION_MERGE on entity com.m2i.tp.entity.Compte: select compte0_.numero as numero1_2_1_, compte0_.label as label2_2_1_, compte0_.solde as solde3_2_1_, operations1_.ref_compte as ref_comp5_3_3_, operations1_.numOp as numOp1_3_3_, operations1_.numOp as numOp1_3_0_, operations1_.ref_compte as ref_comp5_3_0_, operations1_.dateOp as dateOp2_3_0_, operations1_.label as label3_3_0_, operations1_.montant as montant4_3_0_ from Compte compte0_ left outer join Operation operations1_ on compte0_.numero=operations1_.ref_compte where compte0_.numero=?
+2019-01-17 11:30:43,844 DEBUG main org.hibernate.loader.Loader - Static select for action ACTION_REFRESH on entity com.m2i.tp.entity.Compte: select compte0_.numero as numero1_2_1_, compte0_.label as label2_2_1_, compte0_.solde as solde3_2_1_, operations1_.ref_compte as ref_comp5_3_3_, operations1_.numOp as numOp1_3_3_, operations1_.numOp as numOp1_3_0_, operations1_.ref_compte as ref_comp5_3_0_, operations1_.dateOp as dateOp2_3_0_, operations1_.label as label3_3_0_, operations1_.montant as montant4_3_0_ from Compte compte0_ left outer join Operation operations1_ on compte0_.numero=operations1_.ref_compte where compte0_.numero=?
+2019-01-17 11:30:43,849 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@62e93c3a]
+2019-01-17 11:30:43,849 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@673919a7]
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : adresse
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CompositeQuerySpaceImpl@78e22d35]
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : adresse.codePostal
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : adresse.numEtRue
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : adresse.ville
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : comptes
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Property path deemed to be circular : comptes
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : email
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : nom
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : prenom
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : telephone
+2019-01-17 11:30:43,850 DEBUG main org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2019-01-17 11:30:43,853 DEBUG main org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(collection=com.m2i.tp.entity.Compte.proprietaires)
+    - Returns
+       - CollectionReturnImpl(collection=com.m2i.tp.entity.Compte.proprietaires, querySpaceUid=<gen:0>, path=[com.m2i.tp.entity.Compte.proprietaires])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Client, querySpaceUid=<gen:1>, path=[com.m2i.tp.entity.Compte.proprietaires].<elements>)
+             - CompositeAttributeFetchImpl(composite=com.m2i.tp.entity.Adresse, querySpaceUid=<gen:2>, path=[com.m2i.tp.entity.Compte.proprietaires].<elements>.adresse)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.m2i.tp.entity.Compte.proprietaires)
+          - SQL table alias mapping - proprietai0_
+          - alias suffix - 0_
+          - suffixed key columns - {numCpt1_1_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - numClien1_0_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.m2i.tp.entity.Client)
+                - SQL table alias mapping - client1_
+                - alias suffix - 1_
+                - suffixed key columns - {numClien1_0_1_}
+                - JOIN (JoinDefinedByMetadata(adresse)) : <gen:1> -> <gen:2>
+                   - CompositeQuerySpaceImpl(uid=<gen:2>)
+                      - SQL table alias mapping - client1_
+
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.loader.collection.plan.CollectionLoader - Static select for collection com.m2i.tp.entity.Compte.proprietaires: select proprietai0_.numCpt as numCpt1_1_0_, proprietai0_.numCli as numCli2_1_0_, client1_.numClient as numClien1_0_1_, client1_.codePostal as codePost2_0_1_, client1_.numEtRue as numEtRue3_0_1_, client1_.ville as ville4_0_1_, client1_.email as email5_0_1_, client1_.nom as nom6_0_1_, client1_.prenom as prenom7_0_1_, client1_.telephone as telephon8_0_1_ from ClientCompte proprietai0_ inner join Client client1_ on proprietai0_.numCli=client1_.numClient where proprietai0_.numCpt=?
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@62db3891]
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@61cd1c71]
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : compte
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Property path deemed to be circular : compte
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : dateOp
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : label
+2019-01-17 11:30:43,854 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : montant
+2019-01-17 11:30:43,855 DEBUG main org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2019-01-17 11:30:43,855 DEBUG main org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2019-01-17 11:30:43,855 DEBUG main org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(collection=com.m2i.tp.entity.Compte.operations)
+    - Returns
+       - CollectionReturnImpl(collection=com.m2i.tp.entity.Compte.operations, querySpaceUid=<gen:0>, path=[com.m2i.tp.entity.Compte.operations])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Operation, querySpaceUid=<gen:1>, path=[com.m2i.tp.entity.Compte.operations].<elements>)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.m2i.tp.entity.Compte.operations)
+          - SQL table alias mapping - operations0_
+          - alias suffix - 0_
+          - suffixed key columns - {ref_comp5_3_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - numOp1_3_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.m2i.tp.entity.Operation)
+                - SQL table alias mapping - operations0_
+                - alias suffix - 1_
+                - suffixed key columns - {numOp1_3_1_}
+
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.collection.plan.CollectionLoader - Static select for collection com.m2i.tp.entity.Compte.operations: select operations0_.ref_compte as ref_comp5_3_0_, operations0_.numOp as numOp1_3_0_, operations0_.numOp as numOp1_3_1_, operations0_.ref_compte as ref_comp5_3_1_, operations0_.dateOp as dateOp2_3_1_, operations0_.label as label3_3_1_, operations0_.montant as montant4_3_1_ from Operation operations0_ where operations0_.ref_compte=?
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:0> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@1a4d1ab7]
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:1> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@546e61d5]
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : label
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : operations
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:2> -> org.hibernate.loader.plan.build.internal.spaces.CollectionQuerySpaceImpl@1292071f]
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.plan.build.internal.spaces.QuerySpacesImpl - Adding QuerySpace : uid = <gen:3> -> org.hibernate.loader.plan.build.internal.spaces.EntityQuerySpaceImpl@35d5ac51]
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : proprietaires
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Property path deemed to be circular : proprietaires
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.persister.walking.spi.MetamodelGraphWalker - Visiting attribute path : solde
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.plan.build.internal.FetchStyleLoadPlanBuildingAssociationVisitationStrategy - Building LoadPlan...
+2019-01-17 11:30:43,856 DEBUG main org.hibernate.loader.plan.exec.internal.LoadQueryJoinAndFetchProcessor - processing queryspace <gen:0>
+2019-01-17 11:30:43,857 DEBUG main org.hibernate.loader.plan.build.spi.LoadPlanTreePrinter - LoadPlan(collection=com.m2i.tp.entity.Client.comptes)
+    - Returns
+       - CollectionReturnImpl(collection=com.m2i.tp.entity.Client.comptes, querySpaceUid=<gen:0>, path=[com.m2i.tp.entity.Client.comptes])
+          - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Compte, querySpaceUid=<gen:1>, path=[com.m2i.tp.entity.Client.comptes].<elements>)
+             - CollectionAttributeFetchImpl(collection=com.m2i.tp.entity.Compte.operations, querySpaceUid=<gen:2>, path=[com.m2i.tp.entity.Client.comptes].<elements>.operations)
+                - (collection element) CollectionFetchableElementEntityGraph(entity=com.m2i.tp.entity.Operation, querySpaceUid=<gen:3>, path=[com.m2i.tp.entity.Client.comptes].<elements>.operations.<elements>)
+    - QuerySpaces
+       - CollectionQuerySpaceImpl(uid=<gen:0>, collection=com.m2i.tp.entity.Client.comptes)
+          - SQL table alias mapping - comptes0_
+          - alias suffix - 0_
+          - suffixed key columns - {numCli2_1_0_}
+          - entity-element alias suffix - 1_
+          - 1_entity-element suffixed key columns - numero1_2_1_
+          - JOIN (JoinDefinedByMetadata(elements)) : <gen:0> -> <gen:1>
+             - EntityQuerySpaceImpl(uid=<gen:1>, entity=com.m2i.tp.entity.Compte)
+                - SQL table alias mapping - compte1_
+                - alias suffix - 1_
+                - suffixed key columns - {numero1_2_1_}
+
+2019-01-17 11:30:43,857 DEBUG main org.hibernate.loader.collection.plan.CollectionLoader - Static select for collection com.m2i.tp.entity.Client.comptes: select comptes0_.numCli as numCli2_1_0_, comptes0_.numCpt as numCpt1_1_0_, compte1_.numero as numero1_2_1_, compte1_.label as label2_2_1_, compte1_.solde as solde3_2_1_ from ClientCompte comptes0_ inner join Compte compte1_ on comptes0_.numCpt=compte1_.numero where comptes0_.numCli=?
+2019-01-17 11:30:43,895 DEBUG main org.hibernate.SQL - drop table if exists Client
+2019-01-17 11:30:43,895 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:43,971 DEBUG main org.hibernate.SQL - drop table if exists ClientCompte
+2019-01-17 11:30:43,984 DEBUG main org.hibernate.SQL - drop table if exists Compte
+2019-01-17 11:30:44,001 DEBUG main org.hibernate.SQL - drop table if exists hibernate_sequence
+2019-01-17 11:30:44,015 DEBUG main org.hibernate.SQL - drop table if exists Operation
+2019-01-17 11:30:44,029 DEBUG main org.hibernate.SQL - create table Client (numClient bigint not null, codePostal varchar(255), numEtRue varchar(255), ville varchar(255), email varchar(255), nom varchar(255), prenom varchar(255), telephone varchar(255), primary key (numClient)) engine=MyISAM
+2019-01-17 11:30:44,029 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:44,064 DEBUG main org.hibernate.SQL - create table ClientCompte (numCpt bigint not null, numCli bigint not null) engine=MyISAM
+2019-01-17 11:30:44,084 DEBUG main org.hibernate.SQL - create table Compte (numero bigint not null auto_increment, label varchar(32), solde double precision, primary key (numero)) engine=MyISAM
+2019-01-17 11:30:44,104 DEBUG main org.hibernate.SQL - create table hibernate_sequence (next_val bigint) engine=MyISAM
+2019-01-17 11:30:44,121 DEBUG main org.hibernate.SQL - insert into hibernate_sequence values ( 1 )
+2019-01-17 11:30:44,125 DEBUG main org.hibernate.SQL - create table Operation (numOp bigint not null auto_increment, dateOp datetime, label varchar(255), montant double precision, ref_compte bigint, primary key (numOp)) engine=MyISAM
+2019-01-17 11:30:44,144 DEBUG main org.hibernate.SQL - alter table ClientCompte add constraint FK7ijxou7u6em8nq8ngibkc9x87 foreign key (numCli) references Client (numClient)
+2019-01-17 11:30:44,196 DEBUG main org.hibernate.SQL - alter table ClientCompte add constraint FKefgr3mdtwpxcom6g5e3vopmij foreign key (numCpt) references Compte (numero)
+2019-01-17 11:30:44,248 DEBUG main org.hibernate.SQL - alter table Operation add constraint FKhl45r1piha2pjlvxjmpkww9dq foreign key (ref_compte) references Compte (numero)
+2019-01-17 11:30:44,300 INFO main org.hibernate.tool.schema.internal.SchemaCreatorImpl - HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@7ecec90d'
+2019-01-17 11:30:44,300 DEBUG main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - No JtaPlatform was specified, checking resolver
+2019-01-17 11:30:44,300 DEBUG main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformResolverInitiator - No JtaPlatformResolver was specified, using default [org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver]
+2019-01-17 11:30:44,306 DEBUG main org.hibernate.engine.transaction.jta.platform.internal.StandardJtaPlatformResolver - Could not resolve JtaPlatform, using default [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-01-17 11:30:44,306 INFO main org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2019-01-17 11:30:44,307 DEBUG main org.hibernate.query.spi.NamedQueryRepository - Checking 0 named HQL queries
+2019-01-17 11:30:44,307 DEBUG main org.hibernate.query.spi.NamedQueryRepository - Checking 0 named SQL queries
+2019-01-17 11:30:44,308 DEBUG main org.hibernate.internal.SessionFactoryRegistry - Initializing SessionFactoryRegistry : org.hibernate.internal.SessionFactoryRegistry@42b84286
+2019-01-17 11:30:44,308 DEBUG main org.hibernate.internal.SessionFactoryRegistry - Registering SessionFactory: 9a66eb34-38b7-4973-9d10-a452ab023351 (<unnamed>)
+2019-01-17 11:30:44,308 DEBUG main org.hibernate.internal.SessionFactoryRegistry - Not binding SessionFactory to JNDI, no JNDI name configured
+2019-01-17 11:30:44,308 INFO main org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2019-01-17 11:30:44,329 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'daoCompteJpa'
+2019-01-17 11:30:44,331 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'serviceClientImpl'
+2019-01-17 11:30:44,335 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'serviceCompteImpl'
+2019-01-17 11:30:44,341 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Creating shared instance of singleton bean 'transactionManager'
+2019-01-17 11:30:44,342 DEBUG main org.springframework.beans.factory.support.DefaultListableBeanFactory - Autowiring by type from bean name 'transactionManager' via factory method to bean named 'entityManagerFactory'
+2019-01-17 11:30:44,362 DEBUG main org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate - Storing ApplicationContext in cache under key [[MergedContextConfiguration@31610302 testClass = TestServiceClient, locations = '{}', classes = '{class com.m2i.tp.config.AppConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]]]
+2019-01-17 11:30:44,362 DEBUG main org.springframework.test.context.cache - Spring test ApplicationContext cache statistics: [DefaultContextCache@267dc982 size = 1, maxSize = 32, parentContextCount = 0, hitCount = 0, missCount = 1]
+2019-01-17 11:30:44,365 DEBUG main org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test method: context [DefaultTestContext@544fe44c testClass = TestServiceClient, testInstance = com.m2i.tp.test.TestServiceClient@5383967b, testMethod = test_CRUD_Client_via_Service_deleguant_au_dao@TestServiceClient, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@31610302 testClass = TestServiceClient, locations = '{}', classes = '{class com.m2i.tp.config.AppConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+2019-01-17 11:30:44,373 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.m2i.tp.service.ServiceClientImpl.saveOrUpdateClient]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2019-01-17 11:30:44,433 DEBUG main org.hibernate.stat.internal.StatisticsInitiator - Statistics initialized [enabled=false]
+2019-01-17 11:30:44,438 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(14838518<open>)] for JPA transaction
+2019-01-17 11:30:44,441 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2019-01-17 11:30:44,441 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - begin
+2019-01-17 11:30:44,441 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:44,524 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5a75ec37]
+2019-01-17 11:30:44,525 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(14838518<open>)] for JPA transaction
+2019-01-17 11:30:44,525 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2019-01-17 11:30:44,533 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:44,544 DEBUG main org.hibernate.SQL - select next_val as id_val from hibernate_sequence for update
+2019-01-17 11:30:44,561 DEBUG main org.hibernate.SQL - update hibernate_sequence set next_val= ? where next_val=?
+2019-01-17 11:30:44,568 DEBUG main org.hibernate.event.internal.AbstractSaveEventListener - Generated identifier: 1, using strategy: org.hibernate.id.enhanced.SequenceStyleGenerator
+2019-01-17 11:30:44,589 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2019-01-17 11:30:44,589 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(14838518<open>)]
+2019-01-17 11:30:44,589 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - committing
+2019-01-17 11:30:44,590 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+2019-01-17 11:30:44,591 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+2019-01-17 11:30:44,593 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 1 insertions, 0 updates, 0 deletions to 1 objects
+2019-01-17 11:30:44,593 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 0 collections
+2019-01-17 11:30:44,594 DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+2019-01-17 11:30:44,594 DEBUG main org.hibernate.internal.util.EntityPrinter - com.m2i.tp.entity.Client{numero=1, comptes=null, adresse=null, telephone=0102030405, nom=Therieur, prenom=alain, email=alain.therieur@ici_ou_la.fr}
+2019-01-17 11:30:44,598 DEBUG main org.hibernate.SQL - insert into Client (codePostal, numEtRue, ville, email, nom, prenom, telephone, numClient) values (?, ?, ?, ?, ?, ?, ?, ?)
+2019-01-17 11:30:44,609 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(14838518<open>)] after transaction
+2019-01-17 11:30:44,609 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2019-01-17 11:30:44,612 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.m2i.tp.service.ServiceClientImpl.rechercherClientParNumero]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2019-01-17 11:30:44,612 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(1506703662<open>)] for JPA transaction
+2019-01-17 11:30:44,612 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2019-01-17 11:30:44,612 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - begin
+2019-01-17 11:30:44,612 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:44,624 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@404db674]
+2019-01-17 11:30:44,624 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1506703662<open>)] for JPA transaction
+2019-01-17 11:30:44,624 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2019-01-17 11:30:44,631 DEBUG main org.hibernate.SQL - select client0_.numClient as numClien1_0_0_, client0_.codePostal as codePost2_0_0_, client0_.numEtRue as numEtRue3_0_0_, client0_.ville as ville4_0_0_, client0_.email as email5_0_0_, client0_.nom as nom6_0_0_, client0_.prenom as prenom7_0_0_, client0_.telephone as telephon8_0_0_ from Client client0_ where client0_.numClient=?
+2019-01-17 11:30:44,644 DEBUG main org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl - Starting ResultSet row #0
+2019-01-17 11:30:44,644 DEBUG main org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+2019-01-17 11:30:44,648 DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,653 DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,654 DEBUG main org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+2019-01-17 11:30:44,654 DEBUG main org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader - Done entity load : com.m2i.tp.entity.Client#1
+2019-01-17 11:30:44,654 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2019-01-17 11:30:44,654 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1506703662<open>)]
+2019-01-17 11:30:44,654 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - committing
+2019-01-17 11:30:44,654 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+2019-01-17 11:30:44,654 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+2019-01-17 11:30:44,655 DEBUG main org.hibernate.engine.internal.Collections - Collection found: [com.m2i.tp.entity.Client.comptes#1], was: [com.m2i.tp.entity.Client.comptes#1] (uninitialized)
+2019-01-17 11:30:44,655 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2019-01-17 11:30:44,655 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 1 collections
+2019-01-17 11:30:44,655 DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+2019-01-17 11:30:44,655 DEBUG main org.hibernate.internal.util.EntityPrinter - com.m2i.tp.entity.Client{numero=1, comptes=<uninitialized>, adresse=null, telephone=0102030405, nom=Therieur, prenom=alain, email=alain.therieur@ici_ou_la.fr}
+2019-01-17 11:30:44,656 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(1506703662<open>)] after transaction
+2019-01-17 11:30:44,656 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2019-01-17 11:30:44,657 DEBUG main com.m2i.tp.test.TestServiceClient - apres ajout et relecture  , cliRelu=_Client [numero=1, nom=Therieur, prenom=alain, adresse=null, telephone=0102030405, email=alain.therieur@ici_ou_la.fr]
+2019-01-17 11:30:44,657 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.m2i.tp.service.ServiceClientImpl.saveOrUpdateClient]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2019-01-17 11:30:44,657 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(1014565006<open>)] for JPA transaction
+2019-01-17 11:30:44,657 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2019-01-17 11:30:44,657 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - begin
+2019-01-17 11:30:44,657 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:44,665 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@5854a18]
+2019-01-17 11:30:44,665 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1014565006<open>)] for JPA transaction
+2019-01-17 11:30:44,665 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2019-01-17 11:30:44,666 DEBUG main org.hibernate.event.internal.EntityCopyObserverFactoryInitiator - Configured EntityCopyObserver strategy: disallow
+2019-01-17 11:30:44,669 DEBUG main org.hibernate.loader.Loader - Loading entity: [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,669 DEBUG main org.hibernate.SQL - select client0_.numClient as numClien1_0_0_, client0_.codePostal as codePost2_0_0_, client0_.numEtRue as numEtRue3_0_0_, client0_.ville as ville4_0_0_, client0_.email as email5_0_0_, client0_.nom as nom6_0_0_, client0_.prenom as prenom7_0_0_, client0_.telephone as telephon8_0_0_ from Client client0_ where client0_.numClient=?
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.loader.Loader - Result set row: 0
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.loader.Loader - Result row: EntityKey[com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.loader.Loader - Done entity load
+2019-01-17 11:30:44,671 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2019-01-17 11:30:44,671 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1014565006<open>)]
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - committing
+2019-01-17 11:30:44,671 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.engine.internal.Collections - Collection found: [com.m2i.tp.entity.Client.comptes#1], was: [com.m2i.tp.entity.Client.comptes#1] (uninitialized)
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 1 updates, 0 deletions to 1 objects
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 1 collections
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.internal.util.EntityPrinter - com.m2i.tp.entity.Client{numero=1, comptes=<uninitialized>, adresse=null, telephone=0102030405, nom=Therieur, prenom=alex, email=alain.therieur@ici_ou_la.fr}
+2019-01-17 11:30:44,672 DEBUG main org.hibernate.SQL - update Client set codePostal=?, numEtRue=?, ville=?, email=?, nom=?, prenom=?, telephone=? where numClient=?
+2019-01-17 11:30:44,677 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(1014565006<open>)] after transaction
+2019-01-17 11:30:44,677 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2019-01-17 11:30:44,677 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Creating new transaction with name [com.m2i.tp.service.ServiceClientImpl.rechercherClientParNumero]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+2019-01-17 11:30:44,677 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Opened new EntityManager [SessionImpl(1642905321<open>)] for JPA transaction
+2019-01-17 11:30:44,677 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - On TransactionImpl creation, JpaCompliance#isJpaTransactionComplianceEnabled == false
+2019-01-17 11:30:44,677 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - begin
+2019-01-17 11:30:44,677 DEBUG main org.springframework.jdbc.datasource.DriverManagerDataSource - Creating new JDBC DriverManager Connection to [jdbc:mysql://localhost:3306/minibankdb?serverTimezone=UTC&createDatabaseIfNotExist=true]
+2019-01-17 11:30:44,686 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Exposing JPA transaction as JDBC [org.springframework.orm.jpa.vendor.HibernateJpaDialect$HibernateConnectionHandle@2440022a]
+2019-01-17 11:30:44,686 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Found thread-bound EntityManager [SessionImpl(1642905321<open>)] for JPA transaction
+2019-01-17 11:30:44,686 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Participating in existing transaction
+2019-01-17 11:30:44,686 DEBUG main org.hibernate.SQL - select client0_.numClient as numClien1_0_0_, client0_.codePostal as codePost2_0_0_, client0_.numEtRue as numEtRue3_0_0_, client0_.ville as ville4_0_0_, client0_.email as email5_0_0_, client0_.nom as nom6_0_0_, client0_.prenom as prenom7_0_0_, client0_.telephone as telephon8_0_0_ from Client client0_ where client0_.numClient=?
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.loader.plan.exec.process.internal.ResultSetProcessorImpl - Starting ResultSet row #0
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.loader.plan.exec.process.internal.EntityReferenceInitializerImpl - On call to EntityIdentifierReaderImpl#resolve, EntityKey was already known; should only happen on root returns with an optional identifier specified
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Resolving associations for [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.engine.internal.TwoPhaseLoad - Done materializing entity [com.m2i.tp.entity.Client#1]
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.resource.jdbc.internal.ResourceRegistryStandardImpl - HHH000387: ResultSet's statement was not registered
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.loader.entity.plan.AbstractLoadPlanBasedEntityLoader - Done entity load : com.m2i.tp.entity.Client#1
+2019-01-17 11:30:44,703 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Initiating transaction commit
+2019-01-17 11:30:44,703 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Committing JPA transaction on EntityManager [SessionImpl(1642905321<open>)]
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.engine.transaction.internal.TransactionImpl - committing
+2019-01-17 11:30:44,703 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Processing flush-time cascades
+2019-01-17 11:30:44,704 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Dirty checking collections
+2019-01-17 11:30:44,704 DEBUG main org.hibernate.engine.internal.Collections - Collection found: [com.m2i.tp.entity.Client.comptes#1], was: [com.m2i.tp.entity.Client.comptes#1] (uninitialized)
+2019-01-17 11:30:44,704 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 insertions, 0 updates, 0 deletions to 1 objects
+2019-01-17 11:30:44,704 DEBUG main org.hibernate.event.internal.AbstractFlushingEventListener - Flushed: 0 (re)creations, 0 updates, 0 removals to 1 collections
+2019-01-17 11:30:44,704 DEBUG main org.hibernate.internal.util.EntityPrinter - Listing entities:
+2019-01-17 11:30:44,704 DEBUG main org.hibernate.internal.util.EntityPrinter - com.m2i.tp.entity.Client{numero=1, comptes=<uninitialized>, adresse=null, telephone=0102030405, nom=Therieur, prenom=alex, email=alain.therieur@ici_ou_la.fr}
+2019-01-17 11:30:44,705 DEBUG main org.springframework.orm.jpa.JpaTransactionManager - Closing JPA EntityManager [SessionImpl(1642905321<open>)] after transaction
+2019-01-17 11:30:44,705 DEBUG main org.springframework.orm.jpa.EntityManagerFactoryUtils - Closing JPA EntityManager
+2019-01-17 11:30:44,706 DEBUG main org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - After test method: context [DefaultTestContext@544fe44c testClass = TestServiceClient, testInstance = com.m2i.tp.test.TestServiceClient@5383967b, testMethod = test_CRUD_Client_via_Service_deleguant_au_dao@TestServiceClient, testException = java.lang.AssertionError, mergedContextConfiguration = [MergedContextConfiguration@31610302 testClass = TestServiceClient, locations = '{}', classes = '{class com.m2i.tp.config.AppConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null], method annotated with @DirtiesContext [false] with mode [null].
+2019-01-17 11:30:44,723 DEBUG main org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - After test class: context [DefaultTestContext@544fe44c testClass = TestServiceClient, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@31610302 testClass = TestServiceClient, locations = '{}', classes = '{class com.m2i.tp.config.AppConfig}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{}', contextCustomizers = set[[empty]], contextLoader = 'org.springframework.test.context.support.DelegatingSmartContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+2019-01-17 11:30:44,728 DEBUG Thread-1 org.springframework.context.support.GenericApplicationContext - Closing org.springframework.context.support.GenericApplicationContext@2b552920, started on Thu Jan 17 11:30:41 CET 2019
+2019-01-17 11:30:44,729 DEBUG Thread-1 org.hibernate.internal.SessionFactoryImpl - HHH000031: Closing
+2019-01-17 11:30:44,730 DEBUG Thread-1 org.hibernate.type.spi.TypeConfiguration$Scope - Un-scoping TypeConfiguration [org.hibernate.type.spi.TypeConfiguration$Scope@1f5c7b6c] from SessionFactory [org.hibernate.internal.SessionFactoryImpl@47547132]
+2019-01-17 11:30:44,730 DEBUG Thread-1 org.hibernate.service.internal.AbstractServiceRegistryImpl - Implicitly destroying ServiceRegistry on de-registration of all child ServiceRegistries
+2019-01-17 11:30:44,730 DEBUG Thread-1 org.hibernate.boot.registry.internal.BootstrapServiceRegistryImpl - Implicitly destroying Boot-strap registry on de-registration of all child ServiceRegistries

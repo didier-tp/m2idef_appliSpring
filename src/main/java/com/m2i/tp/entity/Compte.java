@@ -1,12 +1,25 @@
 package com.m2i.tp.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
+@Getter @Setter @NoArgsConstructor
 public class Compte {
 
 	@Id
@@ -18,11 +31,6 @@ public class Compte {
 	
 	private Double solde;
 
-	// +get/set , +toString() , + constructeurs avec et sans paramètres
-
-	public Compte() {
-		super();
-	}
 
 	public Compte(Long numero, String label, Double solde) {
 		super();
@@ -30,36 +38,28 @@ public class Compte {
 		this.label = label;
 		this.solde = solde;
 	}
+	
+	@ManyToMany
+	@JoinTable(name="ClientCompte",joinColumns={@JoinColumn(name="numCpt")},
+	inverseJoinColumns={@JoinColumn(name="numCli")})
+	private List<Client> proprietaires;
+	
+	@OneToMany(mappedBy="compte",cascade={CascadeType.ALL})
+	private List<Operation> operations;
+	
+		
+	public void addOperation(Operation op){
+		if(operations==null)
+			operations=new ArrayList<Operation>();
+		op.setCompte(this);
+		operations.add(op);
+	}
 
 	@Override
 	public String toString() {
 		return "Compte [numero=" + numero + ", label=" + label + ", solde=" + solde + "]";
 	}
 
-	public Long getNumero() {
-		return numero;
-	}
-
-	public void setNumero(Long numero) {
-		this.numero = numero;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
-	}
-
-	public Double getSolde() {
-		return solde;
-	}
-
-	public void setSolde(Double solde) {
-		this.solde = solde;
-	}
-
-	// ...
+	
 
 }

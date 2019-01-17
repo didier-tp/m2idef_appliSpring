@@ -1,6 +1,5 @@
 package com.m2i.tp.web;
 
-import javax.annotation.PostConstruct;
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -37,17 +36,13 @@ public class CompteMBean {
 	
 	@Inject //ou bien @Autowired
 	private ServiceCompte serviceCompte;   //service métier "spring" vers lequel on va déléguer
+	
+	@Inject //ou bien @Autowired
+	private InitDataMBean initDataMBean; // pour initialiser jeux de données en mode developpement
 
 	private Long numCpt;   //numero de compte à saisir
 	private Compte compte; //compte remonté/recherché à afficher
 	
-	
-	@PostConstruct //pour compenser base réinitialisée au démarrage en mode jpa "drop-and-create"
-	public void initialiserJeuxDeDonneesEnModeDeveloppement() {
-		//code idéalement délégué à sous composant utilitaire tenant compte d'un profile spring:
-		serviceCompte.saveOrUpdateCompte(new Compte(null,"compte 1bis",100.0));
-		serviceCompte.saveOrUpdateCompte(new Compte(null,"compte 2bis",200.0));
-	}
 	
 	public String doSearchCompte() {
 		this.compte = serviceCompte.rechercherCompteParNumero(this.numCpt);
