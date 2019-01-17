@@ -1,6 +1,7 @@
 package com.m2i.tp.dao;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,28 +22,28 @@ public class DaoCompteJpa implements DaoCompte {
 	private EntityManager entityManager;
 
 	@Override
-	public Compte findCompteByNumero(Long numero) {
-		return entityManager.find(Compte.class, numero);
+	public Optional<Compte> findById(Long numero) {
+		return Optional.of(entityManager.find(Compte.class, numero));
 	}
 
 	@Override
-	public List<Compte> findAllComptes() {
+	public List<Compte> findAll() {
 		return entityManager.createQuery("SELECT c FROM Compte c",Compte.class)
 			                .getResultList();
 	}
 
 	@Override
-	public void updateCompte(Compte cpt) {
-		entityManager.merge(cpt);
+	public void save(Compte cpt) {
+		if(cpt.getNumero()==null)
+			entityManager.persist(cpt);
+		else
+		    entityManager.merge(cpt);
 	}
 
-	@Override
-	public void createCompte(Compte cpt) {
-		entityManager.persist(cpt);
-	}
+	
 
 	@Override
-	public void deleteCompte(Long numero) {
+	public void deleteById(Long numero) {
 		Compte cpt = entityManager.find(Compte.class, numero);
         entityManager.remove(cpt);
 	}

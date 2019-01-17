@@ -3,6 +3,7 @@ package com.m2i.tp.dao;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import com.m2i.tp.entity.Compte;
 
@@ -14,12 +15,12 @@ public class DaoCompteSimu implements DaoCompte {
 	private Long nbComptes = 0L;
 
 	@Override
-	public Compte findCompteByNumero(Long numero) {
-		return mapComptes.get(numero);
+	public Optional<Compte> findById(Long numero) {
+		return Optional.of(mapComptes.get(numero));
 	}
 
-	@Override
-	public void createCompte(Compte cpt) {
+
+	private void createCompte(Compte cpt) {
 		// en entrée: cpt avec numero = null
 		nbComptes++;// simuler auto_increment
 		cpt.setNumero(nbComptes);
@@ -27,19 +28,19 @@ public class DaoCompteSimu implements DaoCompte {
 	}
 
 	@Override
-	public List<Compte> findAllComptes() {
+	public List<Compte> findAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void updateCompte(Compte cpt) {
-		// TODO Auto-generated method stub
-
+	public void save(Compte cpt) {
+		if(cpt.getNumero()==null)
+			createCompte(cpt);
 	}
 
 	@Override
-	public void deleteCompte(Long numero) {
+	public void deleteById(Long numero) {
 		// TODO Auto-generated method stub
 
 	}
