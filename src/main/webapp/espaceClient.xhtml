@@ -31,7 +31,16 @@
 	   <h:column>
 	     <f:facet name="header"><f:verbatim>solde</f:verbatim></f:facet>
 	     <h:outputText  value="#{cpt.solde}"/>
-	   </h:column>   
+	   </h:column> 
+	   <h:column>
+			<f:facet name="header"><f:verbatim>détails</f:verbatim></f:facet>
+			<h:commandLink action="#{operationMBean.listerDernieresOperations}"
+				value="dernières opérations" >
+					<f:param name="paramNumCptSel"
+						value="#{cpt.numero}"
+				binding="#{operationMBean.paramNumCptSel}" />
+			</h:commandLink>
+		</h:column>	  
 	</h:dataTable>
 	</h:form>
 	<hr/>

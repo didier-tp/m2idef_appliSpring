@@ -63,7 +63,7 @@ public class ServiceCompteImpl implements ServiceCompte {
 		
 		Compte cptCred = daoCompte.findById(numCptCred).get();
 		cptCred.crediter(montant);//ou bien cptCred.setSolde(cptCred.getSolde() + montant);
-		cptDeb.addOperation(new Operation("credit / virement ",+montant)); //mémoriser débit du virement
+		cptCred.addOperation(new Operation("credit / virement ",+montant)); //mémoriser débit du virement
 		//daoCompte.save(cptCred);
 		
 		//En mode @Transactional , le entityManager et la transaction 
