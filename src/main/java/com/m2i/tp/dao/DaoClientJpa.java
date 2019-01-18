@@ -46,8 +46,8 @@ public class DaoClientJpa implements DaoClient {
 
 	@Override
 	public void deleteById(Long numero) {
-		Client cpt = entityManager.find(Client.class, numero);
-        entityManager.remove(cpt);
+		Client cli = entityManager.find(Client.class, numero);
+        entityManager.remove(cli);
 	}
 
 	@Override

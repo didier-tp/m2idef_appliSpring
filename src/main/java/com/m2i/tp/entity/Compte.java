@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 
 import lombok.Getter;
@@ -20,6 +22,10 @@ import lombok.Setter;
 
 @Entity
 @Getter @Setter @NoArgsConstructor
+@NamedQueries({
+	@NamedQuery(name="Compte.findAll",query="SELECT c FROM Compte c"),
+	@NamedQuery(name="Compte.findOperationsOfCompte",query="SELECT op FROM Compte cpt INNER JOIN cpt.operations op WHERE cpt.numero = :numCpt")
+})
 public class Compte {
 
 	@Id
@@ -32,13 +38,6 @@ public class Compte {
 	private Double solde;
 
 
-	public Compte(Long numero, String label, Double solde) {
-		super();
-		this.numero = numero;
-		this.label = label;
-		this.solde = solde;
-	}
-	
 	@ManyToMany
 	@JoinTable(name="ClientCompte",joinColumns={@JoinColumn(name="numCpt")},
 	inverseJoinColumns={@JoinColumn(name="numCli")})
@@ -47,6 +46,21 @@ public class Compte {
 	@OneToMany(mappedBy="compte",cascade={CascadeType.ALL})
 	private List<Operation> operations;
 	
+
+	public Compte(Long numero, String label, Double solde) {
+		super();
+		this.numero = numero;
+		this.label = label;
+		this.solde = solde;
+	}
+	
+	public void debiter(double montant) {
+		solde -= montant;
+	}
+	
+	public void crediter(double montant) {
+		solde += montant;
+	}
 		
 	public void addOperation(Operation op){
 		if(operations==null)

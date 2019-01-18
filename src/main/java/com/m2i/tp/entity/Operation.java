@@ -35,7 +35,7 @@ public class Operation {
 		
 	@Override
 	public String toString() {
-		return "_Operation [numero=" + numOp + ", label=" + label
+		return "Operation [numero=" + numOp + ", label=" + label
 				+ ", montant=" + montant + ", dateOp=" + dateOp + "]";
 	}
 

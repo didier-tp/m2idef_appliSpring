@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import com.m2i.tp.entity.Adresse;
 import com.m2i.tp.entity.Client;
 import com.m2i.tp.entity.Compte;
+import com.m2i.tp.entity.Operation;
 import com.m2i.tp.service.ServiceClient;
 import com.m2i.tp.service.ServiceCompte;
 
@@ -56,9 +57,15 @@ public class InitDataMBean {
 		
 		Compte cptA = new Compte(null,"compte A",100.0);
 		this.serviceCompte.saveOrUpdateCompte(cptA);
+		serviceCompte.addOperation(cptA.getNumero(),new Operation("achat 1" , -30.60));
+		serviceCompte.addOperation(cptA.getNumero(),new Operation("achat 2" , -31.60));
+		serviceCompte.addOperation(cptA.getNumero(),new Operation("payement salaire" , 2000.60));
 		
 		Compte cptB = new Compte(null,"compte B",80.0);
 		this.serviceCompte.saveOrUpdateCompte(cptB);
+		serviceCompte.addOperation(cptB.getNumero(),new Operation("achat x" , -60.60));
+		serviceCompte.addOperation(cptB.getNumero(),new Operation("achat y" , -81.60));
+		serviceCompte.addOperation(cptB.getNumero(),new Operation("payement salaire" , 2500.60));
 		
 		Compte cptC = new Compte(null,"compte C",60.0);
 		this.serviceCompte.saveOrUpdateCompte(cptC);

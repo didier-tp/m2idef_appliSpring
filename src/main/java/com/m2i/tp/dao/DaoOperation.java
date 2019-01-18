@@ -11,7 +11,7 @@ public interface DaoOperation {
 	public List<Operation> findAll();
 
 	// ...
-	public void save(Operation cpt);
+	public void save(Operation op);
 
 	public void deleteById(Long numero);
 }

@@ -49,7 +49,7 @@ public class Client {
 	
 	@Override
 	public String toString() {
-		return "_Client [numero=" + numero + ", nom=" + nom + ", prenom="
+		return "Client [numero=" + numero + ", nom=" + nom + ", prenom="
 				+ prenom + ", adresse=" + adresse + ", telephone="
 				+ telephone + ", email=" + email 
 				+ "]";

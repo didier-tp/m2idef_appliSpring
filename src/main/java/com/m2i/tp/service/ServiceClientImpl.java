@@ -1,7 +1,6 @@
 package com.m2i.tp.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -27,8 +26,7 @@ public class ServiceClientImpl implements ServiceClient {
 
 	@Override
 	public Client rechercherClientParNumero(Long numero) {
-		Optional<Client> optCli = daoClient.findById(numero);
-		return optCli.isPresent()?optCli.get():null;
+		return daoClient.findById(numero).orElse(null);
 	}
 
 	@Override
