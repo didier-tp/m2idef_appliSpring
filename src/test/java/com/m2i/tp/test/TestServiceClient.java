@@ -38,6 +38,15 @@ public class TestServiceClient {
 		   cli.setAdresse(new Adresse("12, rue Elle " , "75000" , "Paris"));
 		serviceClient.saveOrUpdateClient(cli);
 		
+		serviceClient.setInfoAuth(cli.getNumero(), "alain.therieur", "pwd1");
+		Client cFromGoodIa = serviceClient.clientFromVerifInfoAuth("alain.therieur", "pwd1");
+		Assert.assertTrue(cFromGoodIa!=null  && cFromGoodIa.getNumero() == cli.getNumero());
+		Client cFromBadUsername = serviceClient.clientFromVerifInfoAuth("wrong username", "pwd1");
+		Assert.assertNull(cFromBadUsername);
+		Client cFromBadPwd = serviceClient.clientFromVerifInfoAuth("alain.therieur", "wrong pwd");
+		Assert.assertNull(cFromBadPwd);
+		
+		
 		Client autreCli = new Client(null,"Therieur","alain","0102030405" ,"alain.therieur@ici_ou_la.fr");
 		  autreCli.setAdresse(new Adresse("25, rue des pas perdus " , "76000" , "Rouen"));
 		serviceClient.saveOrUpdateClient(autreCli);

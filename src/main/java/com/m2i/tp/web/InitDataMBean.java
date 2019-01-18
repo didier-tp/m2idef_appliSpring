@@ -50,10 +50,12 @@ public class InitDataMBean {
 		Client cli = new Client(null,"Therieur","alain","0102030405" ,"alain.therieur@ici_ou_la.fr");
 		   cli.setAdresse(new Adresse("12, rue Elle " , "75000" , "Paris"));
 		serviceClient.saveOrUpdateClient(cli);
+		serviceClient.setInfoAuth(cli.getNumero(), "alain.therieur", "pwd1");
 		
-		Client autreCli = new Client(null,"Therieur","alain","0102030405" ,"alain.therieur@ici_ou_la.fr");
+		Client autreCli = new Client(null,"Therieur","alex","0504030201" ,"alex.therieur@ici_ou_la.fr");
 		  autreCli.setAdresse(new Adresse("25, rue des pas perdus " , "76000" , "Rouen"));
 		serviceClient.saveOrUpdateClient(autreCli);
+		serviceClient.setInfoAuth(autreCli.getNumero(), "alex.therieur", "pwd2");
 		
 		Compte cptA = new Compte(null,"compte A",100.0);
 		this.serviceCompte.saveOrUpdateCompte(cptA);

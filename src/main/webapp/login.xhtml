@@ -9,13 +9,12 @@
 <ui:define name="pageHeader">identification client MiniBank</ui:define>
 <ui:define name="body">     
 	<h:form id="identification" >
-	    dateNaissance (facultative) : <p:calendar value="#{clientComptes.dateNaissance}"/><br/> 
-	    numClient: <h:inputText id="numClient" value="#{clientComptes.numClient}"/>(ex: 1)<br/>
-	    password: <h:inputText id="password" value="#{clientComptes.password}"/>(ex: pwd1)<br/>
+	    username: <h:inputText id="username" value="#{clientMBean.username}"/>(ex: alain.therieur ou alex.therieur)<br/>
+	    password: <h:inputText id="password" value="#{clientMBean.password}"/>(ex: pwd1 ou pwd2)<br/>
 	    <h:commandButton value="identification" 
-	                     action="#{clientComptes.identifierClient}"/>
+	                     action="#{clientMBean.doSearchClientWithComptesFromLogin}"/>
 	</h:form>
-	<h:messages/> <h:outputText value="#{clientComptes.message}"/>
+	<h:messages/> <h:outputText value="#{clientMBean.message}"/>
 </ui:define>
 </ui:composition>
 </html>

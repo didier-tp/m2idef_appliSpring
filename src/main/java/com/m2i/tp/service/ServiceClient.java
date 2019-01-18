@@ -22,4 +22,6 @@ public interface ServiceClient {
 		public void saveOrUpdateClient(Client cpt);
 		public void supprimerClient(Long numClient);
 		
+		public Client clientFromVerifInfoAuth(String username,String password);
+		public void setInfoAuth(Long numClient,String username,String password);
 }

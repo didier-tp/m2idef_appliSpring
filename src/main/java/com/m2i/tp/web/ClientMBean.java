@@ -35,6 +35,9 @@ public class ClientMBean {
 	@Inject //ou bien @Autowired
 	private InitDataMBean initDataMBean; // pour initialiser jeux de données en mode developpement
 
+	private String username;
+	private String password;
+	
 	private Long numClient;   //numero de client à saisir (ou bien calculé )
 	private Client client; //client à afficher
 	private List<Compte> comptesDuClient; //comptes remonté/recherché à afficher
@@ -45,7 +48,21 @@ public class ClientMBean {
 		//temporairement avant préliminaire login.xhtml
 		numClient=1L;
 		doSearchClientWithComptes();
-		message="";
+		message="acces direct client 1 sans login";
+	}
+	
+	public String doSearchClientWithComptesFromLogin() {
+		this.client = serviceClient.clientFromVerifInfoAuth(username, password);
+		if(client==null) {
+			this.message="wrong username or password";
+			return null;
+		}
+		else {
+			this.numClient = client.getNumero();
+			actualiserListeComptes();
+			message="client authentifié";
+		}
+		return "espaceClient";//naviguer si login ok
 	}
 	
 	public String doSearchClientWithComptes() {
